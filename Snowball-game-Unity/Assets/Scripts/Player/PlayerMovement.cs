@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     Vector2 initialMousePos;
     Vector2 dragDir;
     Rigidbody2D rb;
-    public static UnityEvent OnLose = new UnityEvent();
 
     private void Start()
     {
@@ -20,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //Jestli se koule pohybuje, tak se zvìtšuje. Když se moc zvìtší, tak hráè prohraje
         if(rb.velocity.magnitude >= 0.3)
         {
             Vector3 increase = new Vector3((transform.localScale.x * 1.005f), (transform.localScale.y * 1.005f), 1);
@@ -28,10 +28,12 @@ public class PlayerMovement : MonoBehaviour
                 transform.localScale = increase;
                 return;
             }
-            OnLose.Invoke();
+            GameManager.Instance.Lost.Invoke();
         }
     }
 
+    //Mouse eventy, co zaøizují "pynkání", "cvrnkání" do koule.
+    #region pynkání :)
     private void OnMouseDown()
     {
         if(rb.velocity.magnitude < 0.3)
@@ -54,4 +56,5 @@ public class PlayerMovement : MonoBehaviour
         }
         dragDir = Vector2.zero;
     }
+    #endregion
 }
