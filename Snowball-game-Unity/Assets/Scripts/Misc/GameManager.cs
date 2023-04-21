@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -19,10 +20,13 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public UnityEvent Lost { get; protected set; } = new UnityEvent();
+    public UnityEvent Won { get; protected set; } = new UnityEvent();
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Lost.AddListener(Lose);
+        Won.AddListener(Win);
     }
 
     // Update is called once per frame
@@ -32,5 +36,14 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    void Lose()
+    {
+        throw new NotImplementedException();
+    }
+    void Win()
+    {
+        throw new NotImplementedException();
     }
 }

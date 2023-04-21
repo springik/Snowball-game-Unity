@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7236573853436671053}
   - component: {fileID: 7236573853436671052}
   - component: {fileID: 7236573853436671043}
+  - component: {fileID: 68926454363574797}
   m_Layer: 0
   m_Name: Booster
   m_TagString: Untagged
@@ -49,7 +50,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.49
 --- !u!50 &7236573853436671043
 Rigidbody2D:
   serializedVersion: 4
@@ -71,6 +72,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &68926454363574797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7236573853436671042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300de734e50c73b43b6f63237aaba732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7236573854696224187
 GameObject:
   m_ObjectHideFlags: 0

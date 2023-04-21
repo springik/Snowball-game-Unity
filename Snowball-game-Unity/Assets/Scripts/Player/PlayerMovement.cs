@@ -23,12 +23,11 @@ public class PlayerMovement : MonoBehaviour
         if(rb.velocity.magnitude >= 0.3)
         {
             Vector3 increase = new Vector3((transform.localScale.x * 1.005f), (transform.localScale.y * 1.005f), 1);
-            if(increase.magnitude <= new Vector3(2, 2, 0).magnitude)
-            {
-                transform.localScale = increase;
-                return;
-            }
-            GameManager.Instance.Lost.Invoke();
+            if(increase.magnitude > new Vector3(2, 2, 0).magnitude)
+                GameManager.Instance.Lost.Invoke();
+
+            transform.localScale = increase;
+
         }
     }
 

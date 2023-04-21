@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 4606951412305027587}
   - component: {fileID: 4606951412305027585}
   - component: {fileID: 4606951412305027584}
+  - component: {fileID: -5620334633639239202}
   m_Layer: 0
   m_Name: MagmaChannel
   m_TagString: Untagged
@@ -156,6 +157,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.1, y: 2.1}
   m_Direction: 0
+--- !u!114 &-5620334633639239202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4606951412305027586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3d915cbcce6aa49b4ecc75896aae24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
+  effectRange: 5
 --- !u!1 &4606951412603690968
 GameObject:
   m_ObjectHideFlags: 0

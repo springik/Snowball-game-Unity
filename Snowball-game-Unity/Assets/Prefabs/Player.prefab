@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8152878705032003234}
   - component: {fileID: 8152878705032003233}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8152878706452847519}
   - component: {fileID: 8152878706452847518}
   - component: {fileID: 8152878706452847517}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,8 +132,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 1.05
+  m_LinearDrag: 0.05
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: a26110fe4729e114d9991d810a0de251, type: 2}
   m_Interpolate: 0
