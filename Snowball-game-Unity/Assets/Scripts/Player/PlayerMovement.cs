@@ -31,8 +31,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //Mouse eventy, co zaøizují "pynkání", "cvrnkání" do koule.
-    #region pynkání :)
+    //Mouse eventy, co zaøizují "pinkání", "cvrnkání" do koule.
+    #region pinkání :)
     private void OnMouseDown()
     {
         if(rb.velocity.magnitude < 0.3)

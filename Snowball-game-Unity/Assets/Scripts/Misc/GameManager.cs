@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,8 +26,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Lost.AddListener(Lose);
-        Won.AddListener(Win);
+        List<KillerObstacles> killerObstacles = FindObjectsOfType<KillerObstacles>().ToList<KillerObstacles>();
+        foreach(KillerObstacles obstacle in killerObstacles)
+        {
+            obstacle.PlayerKilled.AddListener(Lose);
+        }
+        Debug.Log(SceneManager.GetActiveScene().buildIndex);
+
+        Goal goal = FindFirstObjectByType<Goal>();
+        goal?.Won.AddListener(Win);
     }
 
     // Update is called once per frame
@@ -35,15 +43,18 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Time.timeScale = 1.0f;
         }
     }
 
     void Lose()
     {
-        throw new NotImplementedException();
+        Lost.Invoke();
+        Time.timeScale = 0f;
     }
     void Win()
     {
-        throw new NotImplementedException();
+        Won.Invoke();
+        Time.timeScale = 0f;
     }
 }
