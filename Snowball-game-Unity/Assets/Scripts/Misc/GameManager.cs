@@ -31,10 +31,14 @@ public class GameManager : MonoBehaviour
         {
             obstacle.PlayerKilled.AddListener(Lose);
         }
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
+        //Debug.Log(SceneManager.GetActiveScene().buildIndex);
 
         Goal goal = FindFirstObjectByType<Goal>();
         goal?.Won.AddListener(Win);
+
+        if(PlayerPrefs.GetInt("highestLevel") < SceneManager.GetActiveScene().buildIndex)
+            PlayerPrefs.SetInt("highestLevel", SceneManager.GetActiveScene().buildIndex);
+        Debug.Log(PlayerPrefs.GetInt("highestLevel") + " level");
     }
 
     // Update is called once per frame
