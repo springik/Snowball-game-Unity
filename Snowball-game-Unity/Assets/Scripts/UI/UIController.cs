@@ -15,14 +15,4 @@ public class UIController : MonoBehaviour
     {
         canvas.SetActive(false);
     }
-    public void GoToMenu()
-    {
-        SceneManager.LoadScene("Menu");
-        Time.timeScale = 1.0f;
-    }
-    public void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1.0f;
-    }
 }

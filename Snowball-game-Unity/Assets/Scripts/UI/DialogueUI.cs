@@ -15,7 +15,7 @@ public class DialogueUI : MonoBehaviour
     private void Start()
     {
         text = textgo.GetComponent<TMP_Text>();
-        Debug.Log(text);
+        //Debug.Log(text);
 
         text.text = dialogues[dialogueIndex];
         dialogueIndex++;

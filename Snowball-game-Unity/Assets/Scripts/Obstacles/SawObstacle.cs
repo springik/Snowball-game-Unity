@@ -27,7 +27,6 @@ public class SawObstacle : KillerObstacles
             target = target == 0 ? 1 : 0;
         curr = Mathf.MoveTowards(curr, target, speed * Time.deltaTime);
 
-        //Debug.Log(curr);
         Vector3 newPos = Vector3.Lerp(startPos, finishPoint, curr);
         transform.position = newPos;
     }

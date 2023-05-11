@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,43 +19,38 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    private void FixedUpdate()
-    {
-        //Jestli se koule pohybuje, tak se zvìtšuje. Když se moc zvìtší, tak hráè prohraje
-        if(rb.velocity.magnitude >= 0.3)
-        {
-            Vector3 increase = new Vector3((transform.localScale.x * 1.005f), (transform.localScale.y * 1.005f), 1);
-            if(increase.magnitude > new Vector3(2, 2, 0).magnitude)
-                GameManager.Instance.Lost.Invoke();
 
-            transform.localScale = increase;
-
-        }
-    }
-
-    //Mouse eventy, co zaøizují "pinkání", "cvrnkání" do koule.
+    //Mouse eventy, co zaøizují "pinkání" / "cvrnkání" do koule.
     #region pinkání :)
     private void OnMouseDown()
     {
-        if(rb.velocity.magnitude < 0.3)
+        if(rb.velocity.magnitude < 0.3f)
+        {
             initialMousePos = Input.mousePosition;
+        }
     }
     private void OnMouseDrag()
     {
-        if(rb.velocity.magnitude < 0.3)
+        //Debug.Log("mousedrag trigger");
+        if(rb.velocity.magnitude < 0.3f)
         {
             Vector2 currMousePos = Input.mousePosition;
             dragDir = currMousePos - initialMousePos;
+            //Debug.Log("dragDir: " + dragDir);
         }
     }
     private void OnMouseUp()
     {
-        if(dragDir.magnitude > 0)
+        //Debug.Log("mouseup trigger");
+        if(dragDir.magnitude > 0f)
         {
-            Vector2 force = ((dragDir.normalized * -1) * speed) / transform.localScale.magnitude;
+            Vector2 force = ((dragDir.normalized * -1) * speed); /// transform.localScale.magnitude
             rb.AddForce(force, ForceMode2D.Impulse);
+            //Debug.Log("mouseup condition triggered with force: " + force.ToString());
+            //Debug.Log("rb: " + rb);
         }
         dragDir = Vector2.zero;
+        //Debug.Log("dragDir" + dragDir);
     }
     #endregion
 }

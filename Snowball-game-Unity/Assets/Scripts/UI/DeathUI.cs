@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathUI : UIController
+public class DeathUI : InLevelUIController
 {
     // Start is called before the first frame update
     void Start()
